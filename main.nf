@@ -29,7 +29,7 @@ process RUN_READ_LENGTH {
     """
     seqkit sample -p 0.05 $read | \
     seqkit fx2tab -nl  |\
-    awk '{ sum += $NF } END { if (NR > 0) print sum / NR }' \
+    awk '{ sum += \$NF } END { if (NR > 0) print sum / NR }' \
     > read_length.txt
 
     echo ${sample} \$(cat read_length.txt) > read_length.txt
