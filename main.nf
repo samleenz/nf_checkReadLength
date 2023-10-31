@@ -48,7 +48,7 @@ workflow {
         
         
     read_lengths_ch
-        .collectFile( name: "read_lengths.txt", newLine: true )
+        .collectFile( name: "read_lengths.txt", newLine: true, storeDir: "$projectDir"  )
     
 
 
