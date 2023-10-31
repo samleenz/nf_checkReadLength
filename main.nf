@@ -42,10 +42,11 @@ process RUN_SAVE_FILE {
     time "2.m"
     publishDir "./", mode: "copy"
 
-    inputpath(files)
+    input:
+        path(files)
 
     output:
-        "read_lengths.txt"
+        path("read_lengths.txt")
 
 
     script:
