@@ -1,6 +1,6 @@
 # Check Read legnth of rnaseq files
 
-V0.1.0
+V0.2.0
 
 ## Usage
 

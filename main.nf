@@ -67,5 +67,11 @@ workflow {
     
     RUN_SAVE_FILE(read_lengths_ch.collect())
 
-
+    workflow.onComplete {
+        log.info( 
+            workflow.success ? 
+            "Pipeline Complete! Read lengths in read_lengths.txt\n" : 
+            "Pipeline Failed.\n" 
+            )
+    }
 }
