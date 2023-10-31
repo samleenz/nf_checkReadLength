@@ -22,7 +22,7 @@ process RUN_READ_LENGTH {
 
 
     output:
-    path("read_length.txt")
+    path("${sample}_read_length.txt")
 
 
     script:
@@ -32,7 +32,7 @@ process RUN_READ_LENGTH {
     awk '{ sum += \$NF } END { if (NR > 0) print sum / NR }' \
     > read_length.txt
 
-    echo ${sample} \$(cat read_length.txt) > read_length.txt
+    echo ${sample} \$(cat read_length.txt) > "${sample}_read_length.txt"
     """
 }
 
