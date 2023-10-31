@@ -40,7 +40,7 @@ process RUN_READ_LENGTH {
 
 workflow {
     reads_ch = Channel.fromPath(params.samplesheet, checkIfExists: true)
-        .splitCSV(header: true)
+        .splitCsv(header: true)
         .map(row -> tuple(row.sample, row.read1))
 
     RUN_READ_LENGTH(reads_ch)
