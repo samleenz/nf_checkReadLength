@@ -43,7 +43,11 @@ workflow {
         .splitCsv(header: true)
         .map(row -> tuple(row.sample, row.read1))
 
-    RUN_READ_LENGTH(reads_ch)
+    read_lengths_ch = RUN_READ_LENGTH(reads_ch)
+        .view()
+        
+        
+    read_lengths_ch
         .collectFile( name: "read_lengths.txt", newLine: true )
     
 
