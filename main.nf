@@ -70,7 +70,7 @@ workflow {
     // read_lengths_ch
     //     .collectFile( name: "read_lengths.txt", newLine: true, storeDir: "$projectDir"  )
     
-    RUN_SAVE_FILE(read_lengths_ch)
+    RUN_SAVE_FILE(read_lengths_ch.collect())
 
 
 }
