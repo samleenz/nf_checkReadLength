@@ -64,11 +64,6 @@ workflow {
         .map(row -> tuple(row.sample, row.read1))
 
     read_lengths_ch = RUN_READ_LENGTH(reads_ch)
-        .view()
-        
-        
-    // read_lengths_ch
-    //     .collectFile( name: "read_lengths.txt", newLine: true, storeDir: "$projectDir"  )
     
     RUN_SAVE_FILE(read_lengths_ch.collect())
 
