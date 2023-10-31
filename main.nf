@@ -36,6 +36,25 @@ process RUN_READ_LENGTH {
     """
 }
 
+process RUN_SAVE_FILE {
+    cpus 1
+    memory "2.G"
+    time "2.m"
+    publishDir "./", mode: "copy"
+
+    inputpath(files)
+
+    output:
+        "read_lengths.txt"
+
+
+    script:
+    """
+    cat $files > read_lengths.txt
+    """
+
+}
+
 
 
 workflow {
@@ -47,10 +66,10 @@ workflow {
         .view()
         
         
-    read_lengths_ch
-        .collectFile( name: "read_lengths.txt", newLine: true, storeDir: "$projectDir"  )
+    // read_lengths_ch
+    //     .collectFile( name: "read_lengths.txt", newLine: true, storeDir: "$projectDir"  )
     
-
+    RUN_SAVE_FILE(read_lengths_ch)
 
 
 }
